@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>專案主目錄</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    height: 100vh;
+    display: flex;
+
+    /* 可愛漸層 */
+    background: linear-gradient(135deg, #ffd6e0, #e7c6ff);
+}
+
+/* 左側選單 */
+.sidebar {
+    width: 260px;
+    background: #fff0f6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 5px 0 20px rgba(0,0,0,0.08);
+}
+
+/* 標題 */
+.sidebar h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #d63384;
+}
+
+.student-id {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* 選單 */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-bottom: 10px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #6a4c93;
+    background: #ffe3ec;
+
+    transition: all 0.25s ease;
+}
+
+/* hover效果 */
+.menu a:hover {
+    background: #ffb3c6;
+    color: white;
+    transform: translateX(5px);
+}
+
+/* 主內容 */
+.main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* iframe卡片 */
+.viewer {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* iframe */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 預設畫面 */
+.placeholder {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #999;
+}
+
+.placeholder h2 {
+    color: #d63384;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 左側選單 -->
+<div class="sidebar">
+    <h1>🌸 我的專案</h1>
+    <div class="student-id">學號：413730143</div>
+
+    <ul class="menu">
+        <li><a href="ex1/index.html" target="viewer">練習一</a></li>
+        <li><a href="ex2/index.html" target="viewer">練習二</a></li>
+        <li><a href="ex3/index.html" target="viewer">練習三</a></li>
+        <li><a href="ex4/index.html" target="viewer">練習四</a></li>
+        <li><a href="ex5/index.html" target="viewer">練習五</a></li>
+        <li><a href="ex6/index.html" target="viewer">練習六</a></li>
+        <li><a href="ex7/index.html" target="viewer">練習七</a></li>
+        <li><a href="ex8/index.html" target="viewer">練習八</a></li>
+        <li><a href="ex9/index.html" target="viewer">練習九</a></li>
+    </ul>
+</div>
+
+<!-- 右側內容 -->
+<div class="main">
+    <div class="viewer">
+        <iframe name="viewer"></iframe>
+
+        <!-- 預設提示 -->
+        <div class="placeholder" id="placeholder">
+            <h2>✨ 歡迎 ✨</h2>
+            <p>請從左側選擇一個練習</p>
+        </div>
+    </div>
+</div>
+
+<script>
+/* 點擊後隱藏提示 */
+const links = document.querySelectorAll('.menu a');
+const placeholder = document.getElementById('placeholder');
+
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        placeholder.style.display = 'none';
+    });
+});
+</script>
+
+</body>
+</html>
